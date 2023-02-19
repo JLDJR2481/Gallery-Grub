@@ -1,6 +1,7 @@
 package edu.craptocraft.gallerygrub.order;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import edu.craptocraft.gallerygrub.items.Item;
@@ -23,8 +24,32 @@ public class Order implements Comanda {
     }
 
     @Override
+    public void addItem(String name, double price, String extra) {
+
+        Item item = ItemFactory.getItem(name, price, extra);
+        this.items.add(item);
+
+    }
+
+    public Double getTotal() {
+        return this.total;
+    }
+
+    public void updateTotal(Double total) {
+        this.total += total;
+    }
+
+    public int size() {
+        return items.size();
+    }
+
+    public List<Item> itemList() {
+        return Collections.unmodifiableList(this.items);
+    }
+
+    @Override
     public void display() {
-        System.out.println("\n\t --- ORDER --- \n");
+        System.out.println("\n\t --- ORDER ---");
 
         items.stream().forEach(this::itemDisplay);
     }

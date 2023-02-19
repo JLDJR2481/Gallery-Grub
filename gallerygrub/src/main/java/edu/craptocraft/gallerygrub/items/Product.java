@@ -6,4 +6,8 @@ public interface Product {
 
     Double price();
 
+    String extra();
+
+    boolean isRegular();
+
 }

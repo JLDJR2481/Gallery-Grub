@@ -17,6 +17,15 @@ public class Prices {
         prices.put("large", 0.50);
     }
 
+    static Double getPrice(String item) {
+        return prices.get(item);
+    }
+
+    static boolean contains(String item) {
+
+        return prices.containsKey(item);
+    }
+
     public static void display() {
         prices.forEach((key, value) -> System.out.println("\t" + key + "=" + value));
 
